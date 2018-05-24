@@ -8,22 +8,24 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@import GoogleMaps;
 
-@end
+@implementation ViewController {
+    GMSPanoramaView *_panoView;
+}
 
-@implementation ViewController
+- (void)loadView
+{
+    GMSPanoramaView *view = [GMSPanoramaView new];
+    self.view = view;
+    _panoView = view;
+}
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [_panoView moveNearCoordinate:CLLocationCoordinate2DMake(52.379237199999999, 4.82167759999993) radius:50];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
